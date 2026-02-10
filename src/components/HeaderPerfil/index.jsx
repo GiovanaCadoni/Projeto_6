@@ -15,5 +15,5 @@ return (
         <S.Right>0 produto(s) no carrinho</S.Right>
         </S.Inner>
     </S.Wrapper>
-    )
+)
 }

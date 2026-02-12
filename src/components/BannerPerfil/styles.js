@@ -35,7 +35,16 @@ opacity: 0.9;
 `
 
 export const Name = styled.h2`
-font-size: 32px;
-font-weight: 900;
+width: 676px;     
 margin: 0;
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-size: 32px;     
+font-weight: 900;    
+line-height: 100%;
+
+@media (max-width: 700px) {
+    width: 90%;
+    font-size: 24px;
+}
 `

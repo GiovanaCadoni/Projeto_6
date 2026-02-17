@@ -1,12 +1,14 @@
 import * as S from './styles'
 
-export default function ProductCard({ imagem, titulo, descricao }) {
+export default function ProductCard({ produto, onOpenModal }) {
 return (
     <S.Card>
-    <S.Image src={imagem} />
-    <S.Title>{titulo}</S.Title>
-    <S.Description>{descricao}</S.Description>
-    <S.Button>Adicionar ao carrinho</S.Button>
+    <S.Image src={produto.foto} alt={produto.nome} />
+    <S.Title>{produto.nome}</S.Title>
+    <S.Description>{produto.descricao}</S.Description>
+    <S.Button type="button" onClick={() => onOpenModal(produto)}>
+        Adicionar ao carrinho
+    </S.Button>
     </S.Card>
 )
 }

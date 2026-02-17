@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const Card = styled.article`
-width: 472px;              /* Figma */
-height: 398px;             /* Figma */
-border: 1px solid #e66767; /* Figma */
+width: 472px;             
+height: 398px;             
+border: 1px solid #e66767; 
 background: #fff;
 display: flex;
 flex-direction: column;
@@ -56,8 +56,8 @@ align-items: center;
 export const Title = styled.h3`
 color: #e66767;
 font-family: 'Roboto', sans-serif;
-font-size: 18px;   /* Figma */
-font-weight: 700;  /* Figma */
+font-size: 18px;   
+font-weight: 700;  
 line-height: 100%;
 margin: 0;
 `

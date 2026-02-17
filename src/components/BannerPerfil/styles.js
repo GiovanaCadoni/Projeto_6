@@ -20,31 +20,28 @@ max-width: 1024px;
 margin: 0 auto;
 height: 100%;
 padding: 0 16px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-gap: 12px;
-color: #fff;
-font-family: 'Roboto', sans-serif;
 `
 
 export const Category = styled.span`
-font-size: 18px;
+position: absolute;
+top: 25px;
+left: 16px;
+color: #ffffff;
+font-family: 'Roboto', sans-serif;
+font-size: 32px;
 font-weight: 100;
-opacity: 0.9;
+line-height: 100%;
 `
 
 export const Name = styled.h2`
-width: 676px;     
+position: absolute;
+top: 214.75px; 
+left: 16px;
 margin: 0;
+max-width: 676px;
 color: #ffffff;
 font-family: 'Roboto', sans-serif;
-font-size: 32px;     
-font-weight: 900;    
+font-size: 32px;
+font-weight: 900;
 line-height: 100%;
-
-@media (max-width: 700px) {
-    width: 90%;
-    font-size: 24px;
-}
 `

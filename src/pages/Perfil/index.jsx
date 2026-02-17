@@ -1,74 +1,55 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import HeaderPerfil from '../../components/HeaderPerfil'
 import BannerPerfil from '../../components/BannerPerfil'
 import Footer from '../../components/Footer'
 import ProductCard from '../../components/ProductCard'
+import ModalProduto from '../../components/ModalProduto'
 import * as S from './styles'
-
-import pizza from '../../assets/images/pizza.png'
+import getRestaurantes  from '../../services/api'
 
 export default function Perfil() {
-const produtos = [
-    {
-    id: 1,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-    id: 2,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-    id: 3,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-    id: 3,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-    id: 3,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-    },
-    {
-    id: 3,
-    imagem: pizza,
-    titulo: 'Pizza Marguerita',
-    descricao:
-        'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
+const { id } = useParams()
+const [restaurante, setRestaurante] = useState(null)
+const [produtoSelecionado, setProdutoSelecionado] = useState(null)
+
+useEffect(() => {
+    async function load() {
+    const data = await getRestaurantes()
+    const found = data.find((r) => String(r.id) === String(id))
+    setRestaurante(found)
     }
-]
+    load()
+}, [id])
+
+if (!restaurante) return <p>Carregando...</p>
+
 return (
     <>
-        <HeaderPerfil />
-        <BannerPerfil
-        categoria="Italiana"
-        nome="La Dolce Vita Trattoria"
-        imagem={pizza}
+    <HeaderPerfil />
+    <BannerPerfil
+        categoria={restaurante.tipo}
+        nome={restaurante.titulo}
+        imagem={restaurante.capa}
     />
-        <S.Main>
+    <S.Main>
         <S.Container>
-            <S.Grid>
-            {produtos.map((p) => (
-                <ProductCard key={p.id} {...p} />
+        <S.Grid>
+            {restaurante.cardapio.map((p) => (
+            <ProductCard
+                key={p.id}
+                produto={p}
+                onOpenModal={setProdutoSelecionado}
+            />
             ))}
-            </S.Grid>
+        </S.Grid>
         </S.Container>
-        </S.Main>
-        <Footer />
+    </S.Main>
+    <ModalProduto
+        produto={produtoSelecionado}
+        onClose={() => setProdutoSelecionado(null)}
+    />
+    <Footer />
     </>
 )
 }

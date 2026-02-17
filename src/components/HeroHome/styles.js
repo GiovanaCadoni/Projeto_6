@@ -10,19 +10,19 @@ export const Wrapper = styled.header`
 
 export const Logo = styled.img`
   position: absolute;
-  top: 40px;             /* Figma */
+  top: 40px;             
   left: 50%;
   transform: translateX(-50%);
-  width: 125px;          /* Figma */
+  width: 125px;         
   height: auto;
 `
 
 export const Title = styled.h1`
   position: absolute;
-  top: 236px;            /* Figma */
+  top: 236px;            
   left: 50%;
   transform: translateX(-50%);
-  width: 539px;          /* Figma */
+  width: 539px;          
 
   text-align: center;
   font-family: 'Roboto', sans-serif;

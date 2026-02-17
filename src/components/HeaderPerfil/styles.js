@@ -11,7 +11,7 @@ export const Inner = styled.div`
 width: 100%;
 max-width: 1024px;
 margin: 0 auto;
-padding: 59px 16px 0; /* Figma top = 59px */
+padding: 59px 16px 0; 
 display: grid;
 grid-template-columns: 1fr auto 1fr;
 align-items: center;

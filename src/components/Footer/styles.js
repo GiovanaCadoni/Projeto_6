@@ -13,13 +13,13 @@ justify-content: center;
 export const Logo = styled.img`
 width: 125px;
 height: auto;
-margin-bottom: 32.5px;   /* Figma */
+margin-bottom: 32.5px;  
 `
 
 export const Social = styled.div`
 display: flex;
 gap: 8px;
-margin-bottom: 80px;     /* Figma */
+margin-bottom: 80px;     
 
 img {
     width: 24px;

@@ -5,26 +5,24 @@ import * as S from './styles'
 import logo from '../../assets/images/logo.png'
 
 export default function HeaderPerfil() {
-  const dispatch = useDispatch()
-  const count = useSelector(selectCartCount)
+const dispatch = useDispatch()
+const count = useSelector(selectCartCount)
 
-  return (
+return (
     <S.Wrapper>
-      <S.Inner>
+    <S.Inner>
         <S.Left>
-          <Link to="/">Restaurantes</Link>
+        <Link to="/">Restaurantes</Link>
         </S.Left>
-
         <S.Center>
-          <img src={logo} alt="efood" />
+        <img src={logo} alt="efood" />
         </S.Center>
-
         <S.Right>
-          <button type="button" onClick={() => dispatch(openCart())}>
+        <button type="button" onClick={() => dispatch(openCart())}>
             {count} produto(s) no carrinho
-          </button>
+        </button>
         </S.Right>
-      </S.Inner>
+    </S.Inner>
     </S.Wrapper>
-  )
+)
 }

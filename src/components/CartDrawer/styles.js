@@ -166,16 +166,23 @@ gap: 8px;
     }
 
     input {
-        width: 100%;      
-        height: 32px;
-        background: #ffebd9;
-        border: none;
-        padding: 0 8px;
-        box-sizing: border-box; 
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        outline: none;
-    }
+  width: 100%;
+  height: 32px;
+  background: #ffebd9;
+  border: none;
+  padding: 0 8px;
+  box-sizing: border-box;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #4b4b4b;
+
+  outline: none;
+
+  &.error {
+    border: 2px solid #ffffff;
+  }
+}
 `
 
 export const StepRow = styled.div`
@@ -244,4 +251,12 @@ font-size: 12px;
 font-weight: 400;
 zine-height: 16px;
 text-align: center;
+`
+
+export const FieldError = styled.span`
+  margin-top: 4px;
+  color: #ffebd9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
 `
